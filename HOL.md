@@ -5,7 +5,7 @@
 <a name="Overview"></a>
 ## Overview ##
 
-Windows Azure provides a set of features that allows you to monitor and scale your Web Site whenever is required. Moving static assets to a Storage account will leverage the load of your Web Site and with Auto-Scaling, your Windows Azure Web Sites will automatically scale accordingly with their traffic load. Additionally, you can use Endpoint monitoring to measure the response time of your Web site from different locations.
+Windows Azure provides a set of features that allows you to monitor and scale your Web Site whenever is required. Moving static assets to a Storage account will leverage the load of your Web Site and with Auto-Scaling, your Windows Azure Web Sites will automatically scale accordingly with their CPU load. Additionally, you can use Endpoint monitoring to measure the response time of your Web site from different locations.
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -33,13 +33,9 @@ In order to execute the exercises in this hands-on lab you need to set up your e
 
 1. Open a Windows Explorer window and browse to the lab’s **Source** folder.
 
-1. Execute the **Setup.cmd** file with Administrator privileges to launch the setup process that will configure your environment and install the Visual Studio code snippets for this lab.
+1. Execute the **Setup.cmd** file with Administrator privileges to launch the setup process that will configure your environment and check the dependencies.
 
 1. If the User Account Control dialog is shown, confirm the action to proceed.
-
->**Note:** When you first start Visual Studio, you must select one of the predefined settings collections. Every predefined collection is designed to match a particular development style and determines window layouts, editor behavior, IntelliSense code snippets, and dialog box options. The procedures in this lab describe the actions necessary to accomplish a given task in Visual Studio when using the **General Development Settings** collection. If you choose a different settings collection for your development environment, there may be differences in these procedures that you need to take into account.
->
->Make sure you have checked all the dependencies for this lab before running the setup.
 
 ---
 <a name="Exercises"/>
@@ -245,12 +241,24 @@ In this task, you will update the location of the static assets in your Web Appl
 
 In this exercise, you will configure endpoint monitoring for your Windows Azure Web Site. Endpoint monitoring configures web tests from geo-distributed locations that test response time and uptime of web URLs. The test performs an HTTP get operation on the web URL to determine the response time and uptime from each location. Each configured location runs a test every five minutes.
 
+> **Note:** Before switching a web site from the free web site mode to the standard web site mode, you must first remove spending caps in place for your Web Site subscription. For more information on shared and standard mode pricing, see [Pricing Details](https://www.windowsazure.com/en-us/pricing/details/).
+
 <a name="Ex2Task1" />
 #### Task 1 - Enabling endpoint monitoring ####
 
 1.	Go to the Management Portal and open **Web Sites**. Select the Web site you created in the **Getting Started** section of this lab.
 
-1. In the **dashboard** page, click **Configure Web Endpoint Monitoring** link.
+1.	Click **Scale** from the top menu.
+
+1.	Change the Web site mode to **Standard**.
+
+	![websites-standard-mode](Images/websites-standard-mode.png?raw=true)
+
+	_Changing Web Site Mode to Standard_
+
+	> **Note:** This feature is only available in **Standard** mode. You can monitor up to 2 endpoints from up to 3 geographic locations.
+
+1. Go to the **dashboard page** and click **Configure Web Endpoint Monitoring** link.
 
 	![websites-configure-endpoint](Images/websites-configure-endpoint.png?raw=true)
 
@@ -293,6 +301,26 @@ In this exercise, you will configure endpoint monitoring for your Windows Azure 
 <a name="Exercise3"></a>
 ### Exercise 3: Setting up Auto-Scaling for your Site ###
 
+In this exercise, you will enable auto scaling for your Windows Azure Web Site. You can configure the Web site to auto scale when the CPU reaches a target percentage, automatically increasing the instance count. You can configure the minimum and maximum number of instances.
+
+<a name="Ex3Task1" />
+#### Task 1 - Enabling Auto-Scaling ####
+
+1. In the Management Portal, go to your Web Site and click **Scale** from the top menu.
+
+1. In order to enable auto-scale, make sure your Web site **mode** is configured as **Standard**.
+
+	![websites-standard-mode](Images/websites-standard-mode.png?raw=true)
+
+1. Go to the **capacity** section and select _CPU_ from the **Autoscale** options. This enables auto scaling using CPU as a target. 
+
+1. From the instance count slider, select the minimum and maximum instances that you want to target for your Web site. Change the target CPU range in order to increase or decrease the number of running instances. This automatically adds or removes an instance when the threshold is reached.
+
+	![websites-automatically-scaling](Images/websites-automatically-scaling.png?raw=true)
+
+	_Automatically scaling your Web Site_
+
+1. Click the **Save** button from the bottom bar to save the settings.
 
 ---
 
@@ -303,4 +331,4 @@ By completing this hands-on lab you learned the following:
 
 * Moving static assets from your Web site to Windows Azure Storage.
 * Configure endpoint monitoring to measure the availability and response time of your deployed Web site from different locations.
-* Configure Auto-Scaling for Windows Azure Web Sites.
+* Configure Auto-Scaling for Windows Azure Web Sites by changing the range of CPU target and the instance count.
