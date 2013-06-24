@@ -754,3 +754,16 @@ tr.pager td {
             margin: 0;
         }
 }
+
+.asset{
+    display:inline-block;
+    margin-right: 10px;
+}
+
+.asset h3{
+    margin-bottom: 10px;
+}
+
+.asset img {
+    max-height: 300px;
+}
