@@ -161,7 +161,7 @@ In this task you will learn how to create a new Storage Account using the Manage
 <a name="Ex1Task2" />
 #### Task 2 - Moving Static Assets to Storage ####
 
-1. Open **Visual Studio Express 2012 for Web** and open the **Begin** solution located in the **Source** folder of this lab.
+1. Open **Visual Studio Express 2012 for Web** and open the **AssetsWebSite** solution located in the **Source\Assets\AssetsWebSite\** folder of this lab.
 
 1. Open the view **Index** under the **Views** folder. As you can see in the code, this view displays some Images/ and a video using a HTML5 player. These assets are located within your application and will be deployed with your site in the specified region.
 
