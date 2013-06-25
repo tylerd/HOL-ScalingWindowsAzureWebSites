@@ -122,7 +122,7 @@ In this task you will learn how to create a new Storage Account using the Manage
 
 1. Navigate to http://manage.windowsazure.com using a Web browser and sign in using the Microsoft Account associated with your Windows Azure account.
 
-1. In the menu located at the bottom, select **New | Data Services | Storage | Quick Create** to start creating a new Storage Account. Enter a unique name for the account and select a **Region** from the list. Click **OK** to continue.
+1. In the menu located at the bottom, select **New | Data Services | Storage | Quick Create** to start creating a new Storage Account. Enter a unique name for the account and select a **Region** from the list. Click **Create Storage Account** to continue.
 
 	![create-storage-account-menu](Images/create-storage-account-menu.png?raw=true)
 
@@ -163,9 +163,9 @@ In this task you will learn how to create a new Storage Account using the Manage
 
 1. Open **Visual Studio Express 2012 for Web** and open the **AssetsWebSite** solution located in the **Source\Assets\AssetsWebSite\** folder of this lab.
 
-1. Open the view **Index** under the **Views** folder. As you can see in the code, this view displays some Images/ and a video using a HTML5 player. These assets are located within your application and will be deployed with your site in the specified region.
+1. Open the view **Index** under the **Views\Home** folder. As you can see in the code, this view displays some images and a video using a HTML5 player. These assets are located within your application and will be deployed with your site in the specified region.
 
-1. Right-click the **Content** folder and select **Open folder in Windows Explorer**. Take note of the path of the folder.
+1. Right-click the **Content** folder and select **Open folder in File Explorer**. Take note of the path of the folder.
 
 1. Using a Web browser, download https://github.com/downloads/WindowsAzure/azure-sdk-downloads/AzCopy.zip. The **AzCopy** is a tool that allows you to upload files to a blob container. Once downloaded, unzip the file.
 
