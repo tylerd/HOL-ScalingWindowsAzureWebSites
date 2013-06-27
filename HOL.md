@@ -31,7 +31,7 @@ The following is required to complete this hands-on lab:
 
 In order to execute the exercises in this hands-on lab you need to set up your environment.
 
-1. Open a Windows Explorer window and browse to the lab’s **Source** folder.
+1. Open a Windows Explorer window and browse to the lab's **Source** folder.
 
 1. Execute the **Setup.cmd** file with Administrator privileges to launch the setup process that will configure your environment and check the dependencies.
 
@@ -47,7 +47,7 @@ This hands-on lab includes the following exercises:
 1. [Configure Endpoint Monitoring](#Exercise2)
 1. [Setting up Auto-Scaling for your Site](#Exercise3)
 
-Estimated time to complete this lab: **60** minutes.
+Estimated time to complete this lab: **45** minutes.
 
 <a name="GettingStarted"></a>
 ### Getting Started: Publishing Web Site to Windows Azure ###
@@ -55,7 +55,7 @@ Estimated time to complete this lab: **60** minutes.
 First, you will need to deploy a Web Site to Windows Azure. An MVC 4 Application is provided in the **Assets** folder of this lab.
 
 <a name="GettingStartedTask1"></a>
-#### Task 1 – Creating a New Web Site from the Windows Azure Portal ####
+#### Task 1 - Creating a New Web Site from the Windows Azure Portal ####
 
 1. Go to the [Windows Azure Management Portal](https://manage.windowsazure.com/) and sign in using the Microsoft credentials associated with your subscription.
 
@@ -86,7 +86,7 @@ First, you will need to deploy a Web Site to Windows Azure. An MVC 4 Application
 	_Saving the publish profile file_
 
 <a name="GettingStartedTask2"></a>
-#### Task 2 – Publishing an ASP.NET MVC 4 Application using Web Deploy ####
+#### Task 2 - Publishing an ASP.NET MVC 4 Application using Web Deploy ####
 
 1. Open **Visual Studio Express 2012 for Web** as Administrator.
 
@@ -315,6 +315,8 @@ In this exercise, you will enable auto scaling for your Windows Azure Web Site. 
 1. Go to the **capacity** section and select _CPU_ from the **Autoscale** options. This enables auto scaling using CPU as a target. 
 
 1. From the instance count slider, select the minimum and maximum instances that you want to target for your Web site. Change the target CPU range in order to increase or decrease the number of running instances. This automatically adds or removes an instance when the threshold is reached.
+
+	> **Note:** Windows Azure checks the CPU of your web site once every five minutes and adds instances as needed at that point in time. If CPU usage is low, Windows Azure will remove instances once every two hours to ensure that your website remains performant. Generally, putting the minimum instance count at 1 is appropriate. However, if you have sudden usage spikes on your web site, be sure that you have a sufficient minimum number of instances to handle the load. 
 
 	![websites-automatically-scaling](Images/websites-automatically-scaling.png?raw=true)
 
